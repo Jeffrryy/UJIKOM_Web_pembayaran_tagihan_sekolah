@@ -2,7 +2,7 @@
   "name": "Web-Pembayaran-Tagihan-Sekolah",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://jeffrryyy.github.io/{repo-name}/",
+  "homepage": "https://jeffrryyy.github.io/UJIKOM_Web_pembayaran_tagihan_sekolah/",
   "type": "module",
   "scripts": {
     "dev": "vite",
