@@ -43,7 +43,6 @@ function App() {
             ],
 
         },
-        {basename:"/UJIKOM_Web_pembayaran_tagihan_sekolah/"}
     ]);
 
     return (

@@ -9,7 +9,7 @@ const LoginPage = () => {
 
     const navigate = useNavigate();
     const handleNavigate = () => {
-        navigate('/#');
+        window.location.href = "/UJIKOM_Web_pembayaran_tagihan_sekolah/#/";
     }
     const handleSubmit = async (e) => {
         e.preventDefault();
