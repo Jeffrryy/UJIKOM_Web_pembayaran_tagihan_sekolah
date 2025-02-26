@@ -12,14 +12,14 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x] # Specify the Node.js version you want to use
+        node-version: [20.x] # update node.js ke versi terbaru
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4 # update ke v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v4 # update ke v4
         with:
           node-version: ${{ matrix.node-version }}
 
@@ -30,7 +30,7 @@ jobs:
         run: npm run build
 
       - name: Upload production-ready build files
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4 # update ke v4
         with:
           name: production-files
           path: ./dist
@@ -42,8 +42,11 @@ jobs:
     if: github.ref == 'refs/heads/main'
 
     steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4 # tambahin checkout biar workflow bisa akses repo
+
       - name: Download artifact
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4 # update ke v4
         with:
           name: production-files
           path: ./dist
