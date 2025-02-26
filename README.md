@@ -24,8 +24,8 @@ Sistem ini memungkinkan admin untuk mengelola tagihan siswa, menetapkan denda ot
 ## Instalasi dan Menjalankan Project
 1. Clone repository ini:
    ```sh
-   git clone https://github.com/Jeffrryy/repo.git
-   cd nama-folder
+   git clone https://github.com/Jeffrryy/UJIKOM_Web_pembayaran_tagihan_sekolah.git
+   cd UJIKOM_Web_pembayaran_tagihan_sekolah
    ```
 2. Install dependencies:
    ```sh
