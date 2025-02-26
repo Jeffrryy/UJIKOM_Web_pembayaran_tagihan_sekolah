@@ -1,0 +1,138 @@
+oke ini tuh catatan gw biar gak ilang arah pas ngoding.
+Jadi gw pengen bikin website aplikasi pembayaran tagihan sekolah
+Sekarang mulai dari mana dulu yaaa?
+oh iya UML
+yang pasti di uml tuh ada erd,class diagram,dan useCase. mulai dari yang simple dulu yaitu class diagram
+dengan isi nya kek gini:
+ class User {
+  + id_user : int
+  + username : varchar
+  + password : varchar
+  + role : enum
+  --
+  + login()
+  + logout()
+}
+
+class Siswa {
+  + id_siswa : int
+  + nama : varchar
+  + nis : varchar
+  + kelas : varchar
+  --
+  + lihatTagihan()
+  + bayarTagihan()
+}
+
+class Tagihan {
+  + id_tagihan : int
+  + id_siswa : int
+  + jenis_tagihan : varchar
+  + nama_tagihan : varchar
+  + bulan : varchar
+  + tahun : varchar
+  + jumlah : int
+  + status : enum
+  --
+  + tambahTagihan()
+  + editTagihan()
+  + hapusTagihan()
+  + lihatStatus()
+}
+
+class Pembayaran {
+  + id_pembayaran : int
+  + id_tagihan : int
+  + tanggal_bayar : date
+  + metode : varchar
+  + bukti : varchar
+  --
+  + konfirmasiPembayaran()
+  + lihatPembayaran()
+}
+
+ERD adalah representasi visual dari struktur database. Dari class diagram Anda, ERD bisa dibuat seperti ini:
+
+User → Siswa (One-to-One)
+
+Siswa → Tagihan (One-to-Many)
+
+Tagihan → Pembayaran (One-to-One)
+
+Oke sudah saatnya ngerapihi konsep frontend nya
+
+Ide buat list tagihannya:
+Jadi di tiap list nya bisa buat bayar masing masing tagihannya 1 per 1
+terus ada juga opsi buat langsung bayar semua tagihannya
+
+oke setelah beberapa revisi disinilah isi database akhir yang sesuai sama frontendnya:
+CREATE TABLE tagihan (
+    id_tagihan SERIAL PRIMARY KEY,
+    id_user INT NOT NULL,
+    nama_tagihan VARCHAR(50) NOT NULL,
+    jumlah INT NOT NULL,
+    tanggal_jatuh_tempo DATE NOT NULL, -- Harus ada tipe data DATE
+    denda INT DEFAULT 0, -- Bisa diisi manual atau dihitung otomatis
+    status TEXT NOT NULL CHECK (status IN ('belum_bayar', 'lunas')),
+    FOREIGN KEY (id_user) REFERENCES users(id_user) ON DELETE CASCADE
+);
+
+CREATE TABLE pembayaran (
+    id_pembayaran SERIAL PRIMARY KEY,
+    id_tagihan INT NOT NULL,
+    tanggal_bayar DATE DEFAULT CURRENT_DATE,
+    metode VARCHAR(50),
+    bukti VARCHAR(255), -- URL/path bukti transfer
+    status TEXT NOT NULL CHECK (status IN ('pending', 'success', 'failed')) DEFAULT 'pending',
+    FOREIGN KEY (id_tagihan) REFERENCES tagihan(id_tagihan) ON DELETE CASCADE
+);
+
+oke sekarang lanjut bikin backendnya
+
+Users 
+  +id_user: bigint
+  +password: text
+  +role: text
+  +nama: text
+  +nis: text
+  +kelas: text
+  +email: text
+  +no_telepon: text
+  +foto_profile: text
+  +UID: uuid
+
+ Tagihan 
+  +id_tagihan: serial
+  +id_user: text
+  +nama_tagihan: varchar(50)
+  +jumlah: integer
+  +tanggal_jatuh_tempo: date
+  +denda: integer
+  +status: status_enum
+
+
+ Pembayaran 
+  +id_pembayaran: serial
+  +id_tagihan: integer
+  +order_id: varchar(50)
+  +tanggal_bayar: date
+  +metode: varchar(50)
+  +bukti: varchar(255)
+  +status: text
+  +status_midtrans: text
+  +snap_token: text
+
+
+Kwitansi 
+  +id_kwitansi: serial
+  +id_pembayaran: integer
+  +nomor_kwitansi: varchar(20)
+  +tanggal_terbit: timestamp
+  +nama_pembayar: varchar(100)
+  +jumlah: integer
+  +metode: varchar(50)
+  +status: text
+
+
+
+
