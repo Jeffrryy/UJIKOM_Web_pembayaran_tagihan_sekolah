@@ -25,10 +25,10 @@ const LoginPage = () => {
 
         if (data?.user) {
             setMessage('Login Success');
-            navigate("/UJIKOM_Web_pembayaran_tagihan_sekolah/dashboard/home");
+            navigate("/dashboard/home");
         }
     };
-
+//lanjut gimana biar bisa navigatenya di github
     return (
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -84,7 +84,7 @@ const LoginPage = () => {
                 <p className="mt-10 text-center text-sm/6 text-gray-500">
                     Not a member?
                     {' '}
-                    <a href="/UJIKOM_Web_pembayaran_tagihan_sekolah/" className="font-semibold text-indigo-600 hover:text-indigo-500">Register now</a>
+                    <a href="/" className="font-semibold text-indigo-600 hover:text-indigo-500">Register now</a>
                 </p>
             </div>
         </div>

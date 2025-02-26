@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import { ThemeProvider } from "@/contexts/theme-context";
 import { useEffect } from "react";
 import Layout from "@/routes/layout";
@@ -11,33 +11,33 @@ import LoginPage from "./routes/login/LoginPage";
 import { useNavigate } from "react-router-dom";
 
 function App() {
-    const router = createBrowserRouter([
+    const router = createHashRouter([
         {
-            path: "/UJIKOM_Web_pembayaran_tagihan_sekolah",
+            path: "/",
             element: <RegisterPage />,
         },
         {
-            path: "/UJIKOM_Web_pembayaran_tagihan_sekolah/login",
+            path: "/login",
             element: <LoginPage />,
         },
         {
-            path: "/UJIKOM_Web_pembayaran_tagihan_sekolah/dashboard",
+            path: "/dashboard",
             element: <Layout />,
             children: [
                 {
-                    path: "/UJIKOM_Web_pembayaran_tagihan_sekolah/dashboard/home",
+                    path: "home",
                     element: <DashboardPage />,
                 },
                 {
-                    path: "/UJIKOM_Web_pembayaran_tagihan_sekolah/dashboard/Tagihan",
+                    path: "Tagihan",
                     element: <TagihanPage />,
                 },
                 {
-                    path: "/UJIKOM_Web_pembayaran_tagihan_sekolah/dashboard/Kwitansi",
+                    path: "Kwitansi",
                     element: <KuitansiPage />,
                 },
                 {
-                    path: "/UJIKOM_Web_pembayaran_tagihan_sekolah/dashboard/Profile",
+                    path: "Profile",
                     element: <ProfilePage />,
                 },
             ],
