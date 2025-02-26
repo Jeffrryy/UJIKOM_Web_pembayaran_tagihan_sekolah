@@ -39,7 +39,7 @@ const ProfilePage = () => {
     if (error) {
       console.error('Error logging out:', error.message)
     } else {
-      navigate('/login')
+      navigate('/UJIKOM_Web_pembayaran_tagihan_sekolah/')
     }
   }
 

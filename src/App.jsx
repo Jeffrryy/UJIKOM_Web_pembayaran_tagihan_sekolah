@@ -13,31 +13,31 @@ import { useNavigate } from "react-router-dom";
 function App() {
     const router = createBrowserRouter([
         {
-            path: "/",
+            path: "/UJIKOM_Web_pembayaran_tagihan_sekolah",
             element: <RegisterPage />,
         },
         {
-            path: "/login",
+            path: "/UJIKOM_Web_pembayaran_tagihan_sekolah/login",
             element: <LoginPage />,
         },
         {
-            path: "/dashboard",
+            path: "/UJIKOM_Web_pembayaran_tagihan_sekolah/dashboard",
             element: <Layout />,
             children: [
                 {
-                    path: "/dashboard/home",
+                    path: "/UJIKOM_Web_pembayaran_tagihan_sekolah/dashboard/home",
                     element: <DashboardPage />,
                 },
                 {
-                    path: "/dashboard/Tagihan",
+                    path: "/UJIKOM_Web_pembayaran_tagihan_sekolah/dashboard/Tagihan",
                     element: <TagihanPage />,
                 },
                 {
-                    path: "/dashboard/Kwitansi",
+                    path: "/UJIKOM_Web_pembayaran_tagihan_sekolah/dashboard/Kwitansi",
                     element: <KuitansiPage />,
                 },
                 {
-                    path: "/dashboard/Profile",
+                    path: "/UJIKOM_Web_pembayaran_tagihan_sekolah/dashboard/Profile",
                     element: <ProfilePage />,
                 },
             ],

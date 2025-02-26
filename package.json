@@ -1,8 +1,8 @@
 {
-  "name": "Web-Pembayaran-Tagihan-Sekolah",
+  "name": "UJIKOM_Web_pembayaran_tagihan_sekolah",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://jeffrryyy.github.io/",
+  "homepage": "https://jeffrryyy.github.io/UJIKOM_Web_pembayaran_tagihan_sekolah",
   "type": "module",
   "scripts": {
     "dev": "vite",

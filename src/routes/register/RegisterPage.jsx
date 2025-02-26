@@ -87,7 +87,7 @@ const RegisterPage = () => {
         }
     
         setMessage('Registrasi berhasil! Silakan cek email untuk verifikasi.');
-        navigate('/dashboard/home');
+        navigate('/UJIKOM_Web_pembayaran_tagihan_sekolah/dashboard/home');
     };
         
     
@@ -161,7 +161,7 @@ const RegisterPage = () => {
                 <p className="mt-10 text-center text-sm/6 text-gray-500">
                     Already a member?
                     {' '}
-                    <a href="/login" className="font-semibold text-indigo-600 hover:text-indigo-500">Login Now</a>
+                    <a href="/UJIKOM_Web_pembayaran_tagihan_sekolah/login" className="font-semibold text-indigo-600 hover:text-indigo-500">Login Now</a>
                 </p>
             </div>
         </div>

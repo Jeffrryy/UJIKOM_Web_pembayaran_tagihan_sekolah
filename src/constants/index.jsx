@@ -10,22 +10,22 @@ export const navbarLinks = [
             {
                 label: "Dashboard",
                 icon: Home,
-                path: "/dashboard/home",
+                path: "/UJIKOM_Web_pembayaran_tagihan_sekolah/dashboard/home",
             },
             {
                 label: "Tagihan",
                 icon: FileText,
-                path: "/dashboard/Tagihan",
+                path: "/UJIKOM_Web_pembayaran_tagihan_sekolah/dashboard/Tagihan",
             },
             {
                 label: "Kuitansi",
                 icon: CreditCard,
-                path: "/dashboard/Kwitansi",
+                path: "/UJIKOM_Web_pembayaran_tagihan_sekolah/dashboard/Kwitansi",
             },
             {
                 label: "Profile",
                 icon: User,
-                path: "/dashboard/Profile",
+                path: "/UJIKOM_Web_pembayaran_tagihan_sekolah/dashboard/Profile",
             },
         ],
     },

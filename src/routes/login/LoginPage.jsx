@@ -25,7 +25,7 @@ const LoginPage = () => {
 
         if (data?.user) {
             setMessage('Login Success');
-            navigate("/dashboard/home");
+            navigate("/UJIKOM_Web_pembayaran_tagihan_sekolah/dashboard/home");
         }
     };
 
@@ -84,7 +84,7 @@ const LoginPage = () => {
                 <p className="mt-10 text-center text-sm/6 text-gray-500">
                     Not a member?
                     {' '}
-                    <a href="/" className="font-semibold text-indigo-600 hover:text-indigo-500">Register now</a>
+                    <a href="/UJIKOM_Web_pembayaran_tagihan_sekolah/" className="font-semibold text-indigo-600 hover:text-indigo-500">Register now</a>
                 </p>
             </div>
         </div>
