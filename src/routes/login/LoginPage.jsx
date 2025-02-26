@@ -8,7 +8,9 @@ const LoginPage = () => {
     const [message, setMessage] = useState('');
 
     const navigate = useNavigate();
-
+    const handleNavigate = () => {
+        navigate('/');
+    }
     const handleSubmit = async (e) => {
         e.preventDefault();
         setMessage('');
@@ -84,7 +86,7 @@ const LoginPage = () => {
                 <p className="mt-10 text-center text-sm/6 text-gray-500">
                     Not a member?
                     {' '}
-                    <a href="/" className="font-semibold text-indigo-600 hover:text-indigo-500">Register now</a>
+                    <button onClick={handleNavigate} className="font-semibold text-indigo-600 hover:text-indigo-500">Register now</button>
                 </p>
             </div>
         </div>

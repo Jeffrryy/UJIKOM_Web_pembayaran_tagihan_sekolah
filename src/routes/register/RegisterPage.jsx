@@ -14,6 +14,9 @@ const RegisterPage = () => {
     const [message, setMessage] = useState('');
     const [file, setFile] = useState(null);
 
+    const handleNavigate = () => {
+        navigate('/login');
+    }
     const handleSubmit = async (e) => {
         e.preventDefault();
         setMessage('');
