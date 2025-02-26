@@ -9,7 +9,7 @@ const LoginPage = () => {
 
     const navigate = useNavigate();
     const handleNavigate = () => {
-        navigate('/');
+        navigate('/#');
     }
     const handleSubmit = async (e) => {
         e.preventDefault();
