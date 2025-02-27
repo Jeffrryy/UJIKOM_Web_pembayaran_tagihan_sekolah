@@ -1,7 +1,6 @@
-import { forwardRef } from "react";
+import { forwardRef, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-
-import { navbarLinks } from "@/constants";
+import { checkAdminRole, navbarLinks } from "@/constants";
 
 import logoLight from "@/assets/logo-light.svg";
 import logoDark from "@/assets/logo-dark.svg";
@@ -11,6 +10,17 @@ import { cn } from "@/utils/cn";
 import PropTypes from "prop-types";
 
 export const Sidebar = forwardRef(({ collapsed }, ref) => {
+    const [isAdmin, setIsAdmin] = useState(false);
+
+    useEffect(() => {
+        const fetchRole = async () => {
+            const isAdmin = await checkAdminRole();
+            setIsAdmin(isAdmin);
+        };
+
+        fetchRole();
+    }, []);
+
     return (
         <aside
             ref={ref}
@@ -22,16 +32,16 @@ export const Sidebar = forwardRef(({ collapsed }, ref) => {
         >
             <div className="flex gap-x-3 p-3">
                 <img
-                    src={logoLight}
+                    src="https://media.cakeresume.com/image/upload/s--1drzae5j--/c_pad,fl_png8,h_400,w_400/v1710759616/hgawfhkwohypdvdjkrnz.png"
                     alt="Logoipsum"
-                    className="dark:hidden"
+                    className="dark:hidden mx-auto h-10 w-auto"
                 />
                 <img
-                    src={logoDark}
+                    src="https://media.cakeresume.com/image/upload/s--1drzae5j--/c_pad,fl_png8,h_400,w_400/v1710759616/hgawfhkwohypdvdjkrnz.png"
                     alt="Logoipsum"
-                    className="hidden dark:block"
+                    className="hidden dark:block mx-auto h-10 w-auto"
                 />
-                {!collapsed && <p className="text-lg font-medium text-slate-900 transition-colors dark:text-slate-50">Logo taro sini</p>}
+                {!collapsed && <p className="text-lg font-medium text-slate-900 transition-colors dark:text-slate-50">SMK LETRIS INDONESIA 2</p>}
             </div>
             <div className="flex w-full flex-col gap-y-4 overflow-y-auto overflow-x-hidden p-3 [scrollbar-width:_thin]">
                 {navbarLinks.map((navbarLink) => (
@@ -61,6 +71,23 @@ export const Sidebar = forwardRef(({ collapsed }, ref) => {
                         ))}
                     </nav>
                 ))}
+                {isAdmin && (
+                    <nav className={cn("sidebar-group", collapsed && "md:items-center")}>
+                        <NavLink
+                            to="/dashboard/admin"
+                            className={({ isActive }) =>
+                                cn(
+                                    "sidebar-item flex items-center p-2",
+                                    isActive ? "bg-blue-500 text-white" : "",
+                                    collapsed && "md:w-[45px]"
+                                )
+                            }
+                        >
+                            <span className="flex-shrink-0 mr-2">🛠️</span>
+                            {!collapsed && <p className="flex-grow whitespace-nowrap overflow-hidden text-ellipsis">Admin Dashboard</p>}
+                        </NavLink>
+                    </nav>
+                )}
             </div>
         </aside>
     );
@@ -71,3 +98,5 @@ Sidebar.displayName = "Sidebar";
 Sidebar.propTypes = {
     collapsed: PropTypes.bool,
 };
+
+//dah begadangnya, besok lanjut bikin video ya, kalau ada yang mau ditambahin palingan di rapihin aja UI nya sama di menngerti kodenya biar gak pusing

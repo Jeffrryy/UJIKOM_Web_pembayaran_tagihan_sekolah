@@ -5,8 +5,8 @@ Sistem ini memungkinkan admin untuk mengelola tagihan siswa, menetapkan denda ot
 
 ## Fitur
 - **Admin**:
-  - Tambah, edit, hapus tagihan dan melihat riwayat pembayaran. 
-
+  - Tambah, edit, hapus tagihan untuk siswa.
+  - Melihat daftar siswa
 - **Siswa**:
   - Melihat tagihan, membayar tagihan, dan mencetak kuitansi.
 - **Dashboard**:

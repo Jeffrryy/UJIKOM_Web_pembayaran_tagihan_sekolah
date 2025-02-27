@@ -130,8 +130,8 @@
       const { data } = await supabase
         .from('tagihan')
         .select('*')
-        .eq('id_user', userId);
-      
+        .eq('id_user', userId)
+        .neq('status', 'Paid'); // ambil semua KECUALI yang Paid
       setTagihanList(data);
     
       alert('Pembayaran berhasil untuk tagihan: ' + selectedTagihan.map(t => t.nama_tagihan).join(', '));
@@ -178,7 +178,8 @@
       const { data } = await supabase
         .from('tagihan')
         .select('*')
-        .eq('id_user', userId);
+        .eq('id_user', userId)
+        .neq('status', 'Paid'); // ambil semua KECUALI yang Paid
       setTagihanList(data);
     };
 
@@ -194,13 +195,13 @@
         
           </div>
           <div>
-          <button
+          {/* <button
             className="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition
             pl"
             onClick={() => setIsModalOpen(true)}
           >
             Tambah Tagihan
-          </button>
+          </button> */}
           </div>
         
         <div className="card-body p-0">

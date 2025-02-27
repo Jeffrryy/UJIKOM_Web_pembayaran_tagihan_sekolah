@@ -1,8 +1,26 @@
 import { ChartColumn, Home, NotepadText, Package, PackagePlus, Settings, ShoppingBag, UserCheck, UserPlus, Users, FileText, CreditCard, User } from "lucide-react";
+import supabase from '../config/supabaseClient';
 
 import ProfileImage from "@/assets/profile-image.jpg";
 import ProductImage from "@/assets/product-image.jpg";
+import { useEffect } from "react";
 // lanjutin bikin auth nya pake supabase
+
+export const checkAdminRole = async () => {
+    const { data: { user } } = await supabase.auth.getUser();
+    if (user) {
+        const { data, error } = await supabase
+            .from('users')
+            .select('role')
+            .eq('UID', user.id)
+            .single();
+        if (!error && data.role === 'admin') {
+            return true;
+        }
+    }
+    return false;
+};
+
 export const navbarLinks = [
     {
         title: "",

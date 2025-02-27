@@ -34,6 +34,7 @@ useEffect(() => {
             .from('tagihan')
             .select('jumlah')
             .eq('id_user',userData.user.id)
+            .eq('status', 'Pending'); // tambahin kondisi ini
             if (!error) {
                 const total = dataTagihan.reduce((totalJumlah, tagihan) => totalJumlah + tagihan.jumlah, 0);
                 console.log(dataTagihan)

@@ -9,6 +9,7 @@ import ProfilePage from "./routes/profile/ProfilePage";
 import RegisterPage from "./routes/register/RegisterPage";
 import LoginPage from "./routes/login/LoginPage";
 import { useNavigate } from "react-router-dom";
+import AdminDashboard from "./routes/admin/AdminDashboard";
 
 function App() {
     const router = createHashRouter([
@@ -40,9 +41,14 @@ function App() {
                     path: "Profile",
                     element: <ProfilePage />,
                 },
+                {
+                    path: "admin",
+                    element: <AdminDashboard />,
+                },
             ],
-
+            
         },
+      
     ]);
 
     return (
